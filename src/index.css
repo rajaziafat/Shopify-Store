@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../public/fonts/JetBrainsMono-1.0.2/web/woff2/JetBrainsMono-Light.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../public/fonts/JetBrainsMono-1.0.2/web/woff2/JetBrainsMono-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../public/fonts/JetBrainsMono-1.0.2/web/woff2/JetBrainsMono-Medium.woff2);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../public/fonts/JetBrainsMono-1.0.2/web/woff2/JetBrainsMono-Bold.woff2);
+  font-weight: 700;
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../public/fonts/JetBrainsMono-1.0.2/web/woff2/JetBrainsMono-ExtraBold.woff2);
+  font-weight: 800;
+}
+
+@layer base {
+  * {
+    @apply font-open-sans text-white;
+  }
+
+  body,
+  html {
+    @apply bg-dark-black text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1440px] mx-auto w-[86%];
+  }
+}
+
+.black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 110 !important;
+  transition: all 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.black-screen.show {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+/* BULLET */
+
+.team-bullet {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: rgba(209, 242, 36, 0.29);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-bullet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #d1f224;
+  transition: all 4s ease;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+}
+
+.team-bullet.team-bullet-active::before {
+  transform: scaleX(1);
+}
+
+.team-slider-wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.team-slider-wrapper .swiper-slide {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+@media (min-width: 640px) {
+  .team-bullet {
+    display: block;
+    width: 3px;
+    height: 100%;
+    background: rgba(209, 242, 36, 0.29);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-bullet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #d1f224;
+    transition: all 4s ease;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+  }
+
+  .team-bullet.team-bullet-active::before {
+    transform: scaleY(1);
+  }
+}
